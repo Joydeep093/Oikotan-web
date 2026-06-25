@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: #fafaf9;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Skip-to-content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 0.5rem 1rem;
+  background: #0d8a8a;
+  color: #fff;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .font-display {
+    font-family: var(--font-playfair);
+  }
+}
