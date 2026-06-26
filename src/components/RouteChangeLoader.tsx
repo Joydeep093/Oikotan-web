@@ -29,6 +29,28 @@ export default function RouteChangeLoader() {
         return;
       }
 
+      const destination = new URL(anchor.href, window.location.href);
+      const current = new URL(window.location.href);
+
+      const isSameUrl =
+        destination.pathname === current.pathname &&
+        destination.search === current.search &&
+        destination.hash === current.hash;
+
+      const isSamePageAnchorNavigation =
+        destination.pathname === current.pathname &&
+        destination.search === current.search;
+
+      // Do not show route loader when navigating to the same URL.
+      if (isSameUrl) {
+        return;
+      }
+
+      // Hash-only navigation stays on the same page and should not show loader.
+      if (isSamePageAnchorNavigation) {
+        return;
+      }
+
       setIsLoading(true);
     }
 

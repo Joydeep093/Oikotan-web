@@ -1,10 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
-import { EVENTS, FOOD_MENUS_BY_EVENT_ID, TICKETS_BY_EVENT_ID } from "@/data";
+import { EVENTS } from "@/data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import type { Event } from "@/types";
 import { formatEventDate, formatProgramDate } from "@/utils/dateFormatters";
 import { generateEventMetadata } from "@/utils/metadata";
+import { FOOD_MENUS_BY_EVENT_ID } from "@/data/food-menu";
+import { TICKETS_BY_EVENT_ID } from "@/data/tickets";
 
 interface EventPageProps {
   params: {
@@ -66,22 +69,7 @@ export default function EventPage({ params }: EventPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-brand-50 via-white to-neutral-50">
-      <div
-        className="h-96 bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center"
-        aria-hidden="true"
-      >
-        <span className="text-9xl select-none">
-          {event.category === "traditional"
-            ? "🌿"
-            : event.category === "festival"
-              ? "🔥"
-              : event.category === "social"
-                ? "🤝"
-                : "🎭"}
-        </span>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <Link
           href="/events"
           className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:text-brand-700 mb-8"
@@ -103,16 +91,48 @@ export default function EventPage({ params }: EventPageProps) {
           Back to Events
         </Link>
 
-        {/* <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${CATEGORY_COLORS[event.category]}`}>
-          {event.category}
-        </span> */}
+        <section className="grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-start">
+          <div>
+            <span
+              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${CATEGORY_COLORS[event.category]}`}
+            >
+              {event.category}
+            </span>
+            <h1 className="mt-3 font-display text-4xl sm:text-5xl font-bold text-neutral-900">
+              {event.title}
+            </h1>
+            <p className="mt-5 text-lg text-neutral-700 leading-relaxed">
+              {event.description}
+            </p>
+          </div>
 
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-neutral-900 mt-3">
-          {event.title}
-        </h1>
+          <div className="relative h-56 sm:h-64 lg:h-56 overflow-hidden rounded-2xl border border-neutral-200 bg-brand-100 shadow-sm">
+            {event.image ? (
+              <>
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  priority
+                  className="object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
+                  aria-hidden="true"
+                />
+              </>
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-400 to-brand-600">
+                <p className="px-4 text-center text-sm font-semibold tracking-wide text-white/95 uppercase">
+                  Event Image Coming Soon
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          <div className="flex gap-3">
+          <div className="flex gap-3 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm">
             <svg
               className="h-6 w-6 shrink-0 text-brand-600"
               fill="none"
@@ -138,7 +158,7 @@ export default function EventPage({ params }: EventPageProps) {
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm">
             <svg
               className="h-6 w-6 shrink-0 text-brand-600"
               fill="none"
@@ -179,13 +199,10 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         </div>
 
-        <div className="mt-10 prose prose-neutral max-w-none">
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            {event.description}
-          </p>
-        </div>
-
-        {(hasFoodPage || hasCulturalPage || hasDandiyaPage || hasTicketsPage) && (
+        {(hasFoodPage ||
+          hasCulturalPage ||
+          hasDandiyaPage ||
+          hasTicketsPage) && (
           <section className="mt-8" aria-label="Event highlights">
             <div className="flex flex-wrap gap-3">
               {hasTicketsPage && (

@@ -1,7 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import { EVENTS, UPCOMING_EVENTS } from "@/data";
+import { EVENTS } from "@/data";
 import EventCard from "@/components/EventCard";
 import type { Metadata } from "next";
+import { UPCOMING_EVENTS } from "@/data/event-data";
+import homeBanner from "@/assets/images/home_banner.jpeg";
 
 export const metadata: Metadata = {
   title: "Oikotan – Indian Bengali Community in Lithuania",
@@ -18,30 +21,34 @@ export default function HomePage() {
     <>
       {/* ─── Hero ───────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden bg-gradient-to-br from-brand-500 via-brand-600 to-accent-500 text-white"
+        className="relative isolate overflow-hidden text-white min-h-[72vh] flex items-center"
         aria-label="Hero section"
       >
+        <Image
+          src={homeBanner}
+          alt="Oikotan community celebration"
+          fill
+          priority
+          className="object-cover object-center scale-[1.03] saturate-110 contrast-105 brightness-[0.86]"
+        />
         <div
-          className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/5 pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-black/48 via-black/24 to-black/52"
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-16 -left-16 h-80 w-80 rounded-full bg-white/5 pointer-events-none"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(155,28,52,0.18),transparent_55%)]"
           aria-hidden="true"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
-          <div className="max-w-2xl">
-            {/* <p className="text-brand-100 text-sm font-semibold uppercase tracking-widest mb-4">
-              Lithuanian Cultural Community · Netherlands
-            </p> */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-balance">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-balance tracking-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.72)]">
               Oikotan
             </h1>
-            <p className="mt-4 text-xl sm:text-2xl text-brand-100 font-light leading-snug">
+            <p className="mt-4 text-xl sm:text-2xl text-white font-medium leading-snug drop-shadow-[0_3px_10px_rgba(0,0,0,0.68)]">
               The Indian Bengali Cultural Association in Lithuania
             </p>
-            <p className="mt-6 text-base sm:text-lg text-brand-50 max-w-lg leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg text-white/95 max-w-xl leading-relaxed drop-shadow-[0_3px_10px_rgba(0,0,0,0.62)]">
               Oikotan is a non-profit organization promoting and exercising the
               rich and deep roots of bengali traditions and cultural heritage.
               It has organized successful events that have helped to develop a
@@ -50,13 +57,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/events"
-                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-base font-semibold text-brand-600 shadow hover:bg-brand-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
+                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/40"
               >
                 View Events
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center rounded-full border-2 border-white/70 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center rounded-full border-2 border-white/75 px-6 py-3 text-base font-semibold text-white hover:bg-white/12 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 About Us
               </Link>
@@ -261,7 +268,7 @@ export default function HomePage() {
               href="/events"
               className="inline-flex items-center rounded-full border-2 border-white/70 px-7 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              See Events
+              View Events
             </Link>
           </div>
         </div>

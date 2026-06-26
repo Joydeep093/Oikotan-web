@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { CULTURAL_PROGRAMS_BY_EVENT_ID, EVENTS } from "@/data";
+import { EVENTS } from "@/data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { generateCulturalProgramMetadata } from "@/utils/metadata";
 import CulturalScheduleTabs from "@/components/CulturalScheduleTabs";
+import { CULTURAL_PROGRAMS_BY_EVENT_ID } from "@/data/cultural-event";
 
 interface CulturalPageProps {
   params: {
@@ -50,8 +51,14 @@ export default function CulturalPage({ params }: CulturalPageProps) {
         </Link>
 
         <header className="relative mt-6 overflow-hidden rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-500 via-orange-500 to-amber-400 p-6 text-white shadow-xl sm:p-8">
-          <div className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-white/15" aria-hidden="true" />
-          <div className="pointer-events-none absolute -left-10 -bottom-12 h-32 w-32 rounded-full bg-white/10" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-white/15"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -left-10 -bottom-12 h-32 w-32 rounded-full bg-white/10"
+            aria-hidden="true"
+          />
           <p className="text-xs font-semibold uppercase tracking-widest text-rose-100">
             Special Segment
           </p>

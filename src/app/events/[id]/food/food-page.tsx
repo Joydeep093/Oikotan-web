@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { EVENTS, FOOD_MENUS_BY_EVENT_ID } from "@/data";
+import { EVENTS} from "@/data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import FoodMenuTabs from "@/components/FoodMenuTabs";
 import { generateFoodMenuMetadata } from "@/utils/metadata";
+import { FOOD_MENUS_BY_EVENT_ID } from "@/data/food-menu";
 
 interface FoodPageProps {
   params: {

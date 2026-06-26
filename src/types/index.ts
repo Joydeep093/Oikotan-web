@@ -1,5 +1,8 @@
+import type { StaticImageData } from "next/image";
+
 export interface Event {
   id: string;
+  parentEventId?: string;
   title: string;
   startDate: string;
   endDate: string;
@@ -7,7 +10,7 @@ export interface Event {
   location: string;
   mapUrl?: string;
   description: string;
-  image?: string;
+  image?: string | StaticImageData;
   ticketUrl?: string;
   category: "traditional" | "festival" | "cultural" | "social";
   programDetails?: EventProgramDay[];

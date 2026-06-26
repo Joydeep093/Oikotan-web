@@ -4,8 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import { NAV_LINKS, SITE_NAME, PAST_EVENTS } from "@/data";
+import { NAV_LINKS, SITE_NAME } from "@/data";
 import logo from "@/assets/images/logo/logo.png";
+import { PAST_EVENTS } from "@/data/event-data";
 
 export default function Header() {
   const pathname = usePathname();
@@ -16,7 +17,10 @@ export default function Header() {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setDropdownOpen(false);
       }
     }
@@ -48,9 +52,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
+          <nav
+            aria-label="Main navigation"
+            className="hidden md:flex items-center gap-6"
+          >
             {NAV_LINKS.map((link) => {
-              const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const active =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
               const isEventsLink = link.label === "Events";
 
               if (isEventsLink && PAST_EVENTS.length > 0) {
@@ -59,7 +68,9 @@ export default function Header() {
                     <button
                       onClick={() => setDropdownOpen(!dropdownOpen)}
                       className={`text-sm font-medium transition-colors hover:text-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 flex items-center gap-1 ${
-                        active ? "text-brand-500 border-b-2 border-brand-500 pb-0.5" : "text-neutral-700"
+                        active
+                          ? "text-brand-500 border-b-2 border-brand-500 pb-0.5"
+                          : "text-neutral-700"
                       }`}
                     >
                       {link.label}
@@ -115,7 +126,9 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={`text-sm font-medium transition-colors hover:text-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded px-1 ${
-                    active ? "text-brand-500 border-b-2 border-brand-500 pb-0.5" : "text-neutral-700"
+                    active
+                      ? "text-brand-500 border-b-2 border-brand-500 pb-0.5"
+                      : "text-neutral-700"
                   }`}
                   aria-current={active ? "page" : undefined}
                 >
@@ -134,12 +147,34 @@ export default function Header() {
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             )}
           </button>
@@ -155,7 +190,9 @@ export default function Header() {
         >
           <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
-              const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const active =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
               const isEventsLink = link.label === "Events";
 
               if (isEventsLink && PAST_EVENTS.length > 0) {
@@ -165,7 +202,9 @@ export default function Header() {
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className={`block rounded px-3 py-2 text-sm font-medium transition-colors hover:bg-brand-50 hover:text-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
-                        active ? "bg-brand-50 text-brand-600" : "text-neutral-700"
+                        active
+                          ? "bg-brand-50 text-brand-600"
+                          : "text-neutral-700"
                       }`}
                       aria-current={active ? "page" : undefined}
                     >

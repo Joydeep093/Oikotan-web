@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Event } from "@/types";
 
@@ -22,36 +23,58 @@ function formatDate(event: Event) {
 
 interface EventCardProps {
   event: Event;
-  featured?: boolean;
 }
 
-export default function EventCard({ event, featured = false }: EventCardProps) {
+export default function EventCard({ event }: EventCardProps) {
+  const eventDetailsHref = event.parentEventId
+    ? `/events/${event.parentEventId}/${event.id}`
+    : `/events/${event.id}`;
+
   return (
     <article
-      className={`group relative bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden hover:shadow-md transition-shadow ${
-        featured ? "flex flex-col sm:flex-row" : "flex flex-col"
-      }`}
+      className="group relative flex flex-col min-h-[22rem] bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden hover:shadow-md transition-shadow"
       aria-label={`Event: ${event.title}`}
     >
       <Link
-        href={`/events/${event.id}`}
+        href={eventDetailsHref}
         aria-label={`Open details for ${event.title}`}
         className="absolute inset-0 z-20 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-inset"
       />
 
-      {/* Image placeholder */}
-      <div
-        className={`bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center ${
-          featured ? "sm:w-56 h-40 sm:h-auto shrink-0" : "h-36 w-full"
-        }`}
-        aria-hidden="true"
-      >
-        <span className="text-4xl select-none">
-          {event.category === "traditional" ? "🌿" : event.category === "festival" ? "🔥" : event.category === "social" ? "🤝" : "🎭"}
-        </span>
+      {/* Hero media */}
+      <div className="relative h-1/2 w-full overflow-hidden bg-gradient-to-br from-brand-400 to-brand-600">
+        {event.image ? (
+          <>
+            <Image
+              src={event.image}
+              alt={event.title}
+              fill
+              className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent"
+              aria-hidden="true"
+            />
+          </>
+        ) : (
+          <div
+            className="flex h-full w-full items-center justify-center"
+            aria-hidden="true"
+          >
+            <span className="select-none text-4xl">
+              {event.category === "traditional"
+                ? "🌿"
+                : event.category === "festival"
+                  ? "🔥"
+                  : event.category === "social"
+                    ? "🤝"
+                    : "🎭"}
+            </span>
+          </div>
+        )}
       </div>
 
-      <div className="relative z-10 flex flex-col p-4 flex-1">
+      <div className="relative z-10 flex flex-col p-4 flex-1 h-1/2">
         {/* Category badge */}
         <span className={`self-start text-xs font-semibold uppercase tracking-wide rounded-full px-2.5 py-0.5 mb-3 ${CATEGORY_COLORS[event.category]}`}>
           {event.category}
