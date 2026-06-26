@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 import "../assets/globals.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ export default function RootLayout({
           <RouteChangeLoader />
         </Suspense>
         <a href="#main-content" className="skip-link">Skip to main content</a>
+        <Analytics />
         <Header />
         <main id="main-content" tabIndex={-1}>
           {children}
