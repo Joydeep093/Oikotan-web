@@ -13,13 +13,15 @@ interface DandiyaPageProps {
   };
 }
 
-export function generateMetadata({ params }: DandiyaPageProps): Metadata {
-  const event = EVENTS.find((item) => item.id === params.id);
+export async function generateMetadata({ params }: DandiyaPageProps): Promise<Metadata> {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
   return generateDandiyaProgramMetadata(event);
 }
 
-export default function DandiyaPage({ params }: DandiyaPageProps) {
-  const event = EVENTS.find((item) => item.id === params.id);
+export default async function DandiyaPage({ params }: DandiyaPageProps) {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
 
   if (!event) {
     notFound();

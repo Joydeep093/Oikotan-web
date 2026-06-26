@@ -40,8 +40,9 @@ const PERIOD_STYLES = {
   },
 } as const;
 
-export function generateMetadata({ params }: EventPageProps): Metadata {
-  const event = EVENTS.find((e) => e.id === params.id);
+export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((e) => e.id === p.id);
   return generateEventMetadata(event);
 }
 
@@ -51,8 +52,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function EventPage({ params }: EventPageProps) {
-  const event = EVENTS.find((e) => e.id === params.id);
+export default async function EventPage({ params }: EventPageProps) {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((e) => e.id === p.id);
 
   if (!event) {
     notFound();

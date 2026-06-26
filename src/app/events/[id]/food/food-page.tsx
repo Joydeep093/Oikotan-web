@@ -12,13 +12,15 @@ interface FoodPageProps {
   };
 }
 
-export function generateMetadata({ params }: FoodPageProps): Metadata {
-  const event = EVENTS.find((item) => item.id === params.id);
+export async function generateMetadata({ params }: FoodPageProps): Promise<Metadata> {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
   return generateFoodMenuMetadata(event);
 }
 
-export default function FoodPage({ params }: FoodPageProps) {
-  const event = EVENTS.find((item) => item.id === params.id);
+export default async function FoodPage({ params }: FoodPageProps) {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
 
   if (!event) {
     notFound();

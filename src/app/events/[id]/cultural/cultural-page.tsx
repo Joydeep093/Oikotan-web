@@ -12,13 +12,15 @@ interface CulturalPageProps {
   };
 }
 
-export function generateMetadata({ params }: CulturalPageProps): Metadata {
-  const event = EVENTS.find((item) => item.id === params.id);
+export async function generateMetadata({ params }: CulturalPageProps): Promise<Metadata> {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
   return generateCulturalProgramMetadata(event);
 }
 
-export default function CulturalPage({ params }: CulturalPageProps) {
-  const event = EVENTS.find((item) => item.id === params.id);
+export default async function CulturalPage({ params }: CulturalPageProps) {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((item) => item.id === p.id);
 
   if (!event) {
     notFound();

@@ -11,8 +11,9 @@ interface TicketsPageProps {
   params: { id: string };
 }
 
-export function generateMetadata({ params }: TicketsPageProps): Metadata {
-  const event = EVENTS.find((e) => e.id === params.id);
+export async function generateMetadata({ params }: TicketsPageProps): Promise<Metadata> {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((e) => e.id === p.id);
   return generateTicketsMetadata(event);
 }
 
@@ -86,8 +87,9 @@ const CATEGORY_ORDER: EventTicket["category"][] = [
   "special",
 ];
 
-export default function TicketsPage({ params }: TicketsPageProps) {
-  const event = EVENTS.find((e) => e.id === params.id);
+export default async function TicketsPage({ params }: TicketsPageProps) {
+  const p = (await params) as { id: string };
+  const event = EVENTS.find((e) => e.id === p.id);
 
   if (!event) {
     notFound();
