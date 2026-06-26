@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import "../assets/globals.scss";
 import Header from "@/components/Header";
@@ -32,7 +33,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="antialiased bg-neutral-50 text-neutral-900">
-        <RouteChangeLoader />
+        <Suspense fallback={null}>
+          <RouteChangeLoader />
+        </Suspense>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
         <main id="main-content" tabIndex={-1}>
