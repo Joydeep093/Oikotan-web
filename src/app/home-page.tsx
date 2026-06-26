@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { EVENTS } from "@/data";
 import EventCard from "@/components/EventCard";
 import type { Metadata } from "next";
 import { UPCOMING_EVENTS } from "@/data/event-data";

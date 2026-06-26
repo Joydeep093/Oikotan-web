@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import type { EventTicket } from "@/types";
 import { generateTicketsMetadata } from "@/utils/metadata";
-import { formatTabDate } from "@/utils/dateFormatters";
 import TicketCard from "@/components/TicketCard";
 import { TICKETS_BY_EVENT_ID } from "@/data/tickets";
 

@@ -1,12 +1,4 @@
-import type {
-  Event,
-  Testimonial,
-  Partner,
-  TeamMember,
-  CulturalProgramDay,
-  FoodMenuDay,
-  EventTicket,
-} from "@/types";
+import type { Event, Testimonial, Partner, TeamMember } from "@/types";
 import { PAST_EVENTS, UPCOMING_EVENTS } from "./event-data";
 
 export const SITE_NAME = "Oikotan";
@@ -20,13 +12,6 @@ export const NAV_LINKS = [
   // { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
-
-// Helper function to get today's date at midnight for comparison
-function getTodayAtMidnight() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return today;
-}
 
 // Separate events into upcoming and past
 

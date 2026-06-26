@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Learn about Oikotan – our history, mission, and the team behind the Lithuanian cultural community in Lithuania.",
 };
 
-const TIMELINE: any[] = [
+const TIMELINE: { year: string; event: string }[] = [
   // { year: "2015", event: "Oikotan founded by a group of Lithuanian expat families living in Amsterdam." },
   // { year: "2016", event: "First Joninės midsummer celebration with over 100 attendees at Amsterdamse Bos." },
   // { year: "2018", event: "Membership grows to 200+. First Independence Day Gala launched and sold out." },
