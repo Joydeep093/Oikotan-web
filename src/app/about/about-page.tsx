@@ -1,4 +1,4 @@
-import { TEAM } from "@/data";
+// import { TEAM } from "@/data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -56,10 +56,9 @@ export default function AboutPage() {
               </h2>
               <p className="mt-5 text-neutral-600 leading-relaxed">
                 We are a non-profit Indian Bengali cultural community organization
-                in the Netherlands. Our mission is to preserve and promote
+                in Lithuania. Our mission is to preserve and promote
                 Bengali language, folk arts, music, and
-                traditions — ensuring that the next generation growing up in the
-                Netherlands remains deeply connected to their roots.
+                traditions — ensuring that the next generation growing up in Lithuania remains deeply connected to their roots.
               </p>
               <p className="mt-4 text-neutral-600 leading-relaxed">
                 We believe culture is a living thing — it must be celebrated,
@@ -109,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section
+      {/* <section
         className="bg-neutral-100 py-16 sm:py-20"
         aria-labelledby="history-heading"
       >
@@ -141,10 +140,10 @@ export default function AboutPage() {
             ))}
           </ol>
         </div>
-      </section>
+      </section> */}
 
       {/* Team */}
-      <section className="py-16 sm:py-20" aria-labelledby="team-heading">
+      {/* <section className="py-16 sm:py-20" aria-labelledby="team-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-brand-500 text-sm font-semibold uppercase tracking-widest">
@@ -184,7 +183,7 @@ export default function AboutPage() {
             ))}
           </ul>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

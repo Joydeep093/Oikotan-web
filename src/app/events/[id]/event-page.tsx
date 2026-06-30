@@ -19,26 +19,26 @@ interface EventPageProps {
 }
 
 const CATEGORY_COLORS: Record<Event["category"], string> = {
-  traditional: "bg-emerald-100 text-emerald-800",
-  festival: "bg-rose-100 text-rose-800",
-  cultural: "bg-indigo-100 text-indigo-800",
-  social: "bg-cyan-100 text-cyan-800",
+  traditional: "bg-brand-100 text-brand-800",
+  festival: "bg-accent-100 text-accent-800",
+  cultural: "bg-festive-100 text-festive-800",
+  social: "bg-brand-50 text-brand-700",
 };
 
 const PERIOD_STYLES = {
   morning: {
-    chip: "bg-amber-100 text-amber-800",
-    dot: "bg-amber-500",
+    chip: "bg-festive-100 text-festive-800",
+    dot: "bg-festive-500",
     label: "Morning",
   },
   afternoon: {
-    chip: "bg-sky-100 text-sky-800",
-    dot: "bg-sky-500",
+    chip: "bg-brand-100 text-brand-800",
+    dot: "bg-brand-500",
     label: "Afternoon",
   },
   evening: {
-    chip: "bg-violet-100 text-violet-800",
-    dot: "bg-violet-500",
+    chip: "bg-accent-100 text-accent-800",
+    dot: "bg-accent-500",
     label: "Evening",
   },
 } as const;
@@ -216,7 +216,7 @@ export default async function EventPage({ params }: EventPageProps) {
               {hasTicketsPage && (
                 <Link
                   href={`/events/${event.id}/tickets`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-violet-300 bg-gradient-to-r from-violet-50 to-fuchsia-50 px-4 py-2 text-sm font-semibold text-violet-700 hover:from-violet-100 hover:to-fuchsia-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-accent-300 bg-gradient-to-r from-accent-50 to-brand-50 px-4 py-2 text-sm font-semibold text-accent-700 hover:from-accent-100 hover:to-brand-100 transition-colors"
                 >
                   🎟️ Tickets
                 </Link>
@@ -224,7 +224,7 @@ export default async function EventPage({ params }: EventPageProps) {
               {hasFoodPage && (
                 <Link
                   href={`/events/${event.id}/food`}
-                  className="inline-flex items-center rounded-full border border-orange-300 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 hover:bg-orange-100 transition-colors"
+                  className="inline-flex items-center rounded-full border border-festive-300 bg-festive-50 px-4 py-2 text-sm font-semibold text-festive-700 hover:bg-festive-100 transition-colors"
                 >
                   Food Fiesta
                 </Link>
@@ -233,7 +233,7 @@ export default async function EventPage({ params }: EventPageProps) {
               {hasCulturalPage && (
                 <Link
                   href={`/events/${event.id}/cultural`}
-                  className="inline-flex items-center rounded-full border border-indigo-300 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors"
+                  className="inline-flex items-center rounded-full border border-brand-300 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-100 transition-colors"
                 >
                   Cultural Program
                 </Link>
@@ -241,7 +241,7 @@ export default async function EventPage({ params }: EventPageProps) {
               {hasDandiyaPage && (
                 <Link
                   href={`/events/${event.id}/dandiya`}
-                  className="inline-flex items-center rounded-full border border-fuchsia-300 bg-fuchsia-50 px-4 py-2 text-sm font-semibold text-fuchsia-700 hover:bg-fuchsia-100 transition-colors"
+                  className="inline-flex items-center rounded-full border border-accent-300 bg-accent-50 px-4 py-2 text-sm font-semibold text-accent-700 hover:bg-accent-100 transition-colors"
                 >
                   Dandiya Night
                 </Link>
@@ -343,7 +343,7 @@ export default async function EventPage({ params }: EventPageProps) {
                                   {item.url && (
                                     <Link
                                       href={`/events/${event.id}/${item.url}`}
-                                      className={`text-xs hover:underline ${item.url === "food" ? "text-orange-600" : "text-blue-500"}`}
+                                      className={`text-xs hover:underline ${item.url === "food" ? "text-festive-700" : "text-brand-700"}`}
                                     >
                                       more...
                                     </Link>
@@ -375,9 +375,6 @@ export default async function EventPage({ params }: EventPageProps) {
                     <h2 className="font-display text-2xl font-bold text-neutral-900">Our Sponsors</h2>
                     <p className="mt-2 text-sm text-neutral-600">Oikotan Durga Puja</p>
                   </div>
-                  <span className="inline-flex rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
-                    {eventYear}
-                  </span>
                 </div>
 
                 <SponsorStrip sponsors={list} />

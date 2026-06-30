@@ -29,11 +29,11 @@ export default async function CulturalPage({ params }: CulturalPageProps) {
   const dayWiseCulturalSchedule = CULTURAL_PROGRAMS_BY_EVENT_ID[event.id] ?? [];
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#eef2ff_0%,_#ffffff_50%,_#f8fafc_100%)]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f0fafa_0%,_#ffffff_50%,_#fff1f4_100%)]">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <Link
           href={`/events/${event.id}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-indigo-700 hover:text-indigo-800"
+          className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-800"
         >
           <svg
             className="h-4 w-4"
@@ -52,7 +52,7 @@ export default async function CulturalPage({ params }: CulturalPageProps) {
           Back to Event Details
         </Link>
 
-        <header className="relative mt-6 overflow-hidden rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-500 via-orange-500 to-amber-400 p-6 text-white shadow-xl sm:p-8">
+        <header className="relative mt-6 overflow-hidden rounded-3xl border border-accent-200 bg-gradient-to-r from-accent-500 via-accent-600 to-brand-500 p-6 text-white shadow-xl sm:p-8">
           <div
             className="pointer-events-none absolute -right-14 -top-14 h-36 w-36 rounded-full bg-white/15"
             aria-hidden="true"
@@ -61,13 +61,13 @@ export default async function CulturalPage({ params }: CulturalPageProps) {
             className="pointer-events-none absolute -left-10 -bottom-12 h-32 w-32 rounded-full bg-white/10"
             aria-hidden="true"
           />
-          <p className="text-xs font-semibold uppercase tracking-widest text-rose-100">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent-100">
             Special Segment
           </p>
           <h1 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-white">
             Cultural Program
           </h1>
-          <p className="mt-3 max-w-3xl text-rose-50 leading-relaxed">
+          <p className="mt-3 max-w-3xl text-white/90 leading-relaxed">
             {/* Some text about the cultural program can go here, describing the essence of the event and what attendees can expect from the cultural activities planned for the day. */}
           </p>
         </header>
@@ -85,7 +85,7 @@ export default async function CulturalPage({ params }: CulturalPageProps) {
         <div className="mt-10 border-t border-neutral-200 pt-6">
           <Link
             href={`/events/${event.id}`}
-            className="inline-flex items-center gap-2 rounded-full border border-rose-300 bg-white px-5 py-2.5 text-sm font-semibold text-rose-700 hover:bg-rose-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
+            className="inline-flex items-center gap-2 rounded-full border border-accent-300 bg-white px-5 py-2.5 text-sm font-semibold text-accent-700 hover:bg-accent-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
           >
             <svg
               className="h-4 w-4"

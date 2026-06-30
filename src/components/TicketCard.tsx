@@ -8,52 +8,52 @@ const CATEGORY_STYLES: Record<
   { bg: string; badge: string; icon: string; accent: string; border: string; glow: string }
 > = {
   pass: {
-    bg: "from-violet-600 via-purple-600 to-indigo-600",
-    badge: "bg-violet-100 text-violet-800",
+    bg: "from-brand-600 via-brand-500 to-accent-500",
+    badge: "bg-brand-100 text-brand-800",
     icon: "🎟️",
-    accent: "text-violet-700",
-    border: "border-violet-200",
-    glow: "shadow-violet-100",
+    accent: "text-brand-700",
+    border: "border-brand-200",
+    glow: "shadow-brand-100",
   },
   puja: {
-    bg: "from-amber-500 via-orange-500 to-yellow-500",
-    badge: "bg-amber-100 text-amber-800",
+    bg: "from-festive-500 via-festive-400 to-brand-500",
+    badge: "bg-festive-100 text-festive-800",
     icon: "🪔",
-    accent: "text-amber-700",
-    border: "border-amber-200",
-    glow: "shadow-amber-100",
+    accent: "text-festive-700",
+    border: "border-festive-200",
+    glow: "shadow-festive-100",
   },
   food: {
-    bg: "from-orange-500 via-red-400 to-rose-500",
-    badge: "bg-orange-100 text-orange-800",
+    bg: "from-festive-500 via-accent-400 to-accent-500",
+    badge: "bg-festive-100 text-festive-800",
     icon: "🍛",
-    accent: "text-orange-700",
-    border: "border-orange-200",
-    glow: "shadow-orange-100",
+    accent: "text-festive-700",
+    border: "border-festive-200",
+    glow: "shadow-festive-100",
   },
   cultural: {
-    bg: "from-indigo-500 via-blue-500 to-sky-500",
-    badge: "bg-indigo-100 text-indigo-800",
+    bg: "from-brand-500 via-brand-400 to-festive-400",
+    badge: "bg-brand-100 text-brand-800",
     icon: "🎭",
-    accent: "text-indigo-700",
-    border: "border-indigo-200",
-    glow: "shadow-indigo-100",
+    accent: "text-brand-700",
+    border: "border-brand-200",
+    glow: "shadow-brand-100",
   },
   dandiya: {
-    bg: "from-fuchsia-600 via-pink-500 to-rose-500",
-    badge: "bg-fuchsia-100 text-fuchsia-800",
+    bg: "from-accent-600 via-accent-500 to-festive-500",
+    badge: "bg-accent-100 text-accent-800",
     icon: "🥁",
-    accent: "text-fuchsia-700",
-    border: "border-fuchsia-200",
-    glow: "shadow-fuchsia-100",
+    accent: "text-accent-700",
+    border: "border-accent-200",
+    glow: "shadow-accent-100",
   },
   special: {
-    bg: "from-emerald-500 via-teal-500 to-cyan-500",
-    badge: "bg-emerald-100 text-emerald-800",
+    bg: "from-accent-500 via-brand-500 to-brand-400",
+    badge: "bg-accent-100 text-accent-800",
     icon: "⭐",
-    accent: "text-emerald-700",
-    border: "border-emerald-200",
-    glow: "shadow-emerald-100",
+    accent: "text-accent-700",
+    border: "border-accent-200",
+    glow: "shadow-accent-100",
   },
 };
 
@@ -63,9 +63,9 @@ interface TicketCardProps {
 }
 
 const PRICING_OPTION_STYLES: Record<"veg" | "non-veg" | "standard", string> = {
-  veg: "border border-emerald-200 bg-emerald-100 text-emerald-800",
-  "non-veg": "border border-rose-200 bg-rose-100 text-rose-800",
-  standard: "border border-amber-200 bg-amber-100 text-amber-800",
+  veg: "border border-brand-200 bg-brand-100 text-brand-800",
+  "non-veg": "border border-accent-200 bg-accent-100 text-accent-800",
+  standard: "border border-festive-200 bg-festive-100 text-festive-800",
 };
 
 export default function TicketCard({
@@ -84,7 +84,7 @@ export default function TicketCard({
 
       {/* Featured ribbon */}
       {featured && ticket.available && (
-        <div className="absolute right-3 top-4 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow">
+        <div className="absolute right-3 top-4 rounded-full bg-gradient-to-r from-accent-600 to-brand-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow">
           Popular
         </div>
       )}
@@ -181,7 +181,7 @@ export default function TicketCard({
                 <p className="text-xs text-neutral-400">per person</p>
               </div>
             ) : ticket.price === 0 ? (
-              <p className="text-xl font-bold text-emerald-600">Free</p>
+              <p className="text-xl font-bold text-brand-600">Free</p>
             ) : (
               <div>
                 <p className="text-2xl font-bold text-neutral-900">
@@ -200,14 +200,14 @@ export default function TicketCard({
                 rel="noopener noreferrer"
                 className={`inline-flex items-center rounded-full bg-gradient-to-r ${style.bg} px-4 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`}
               >
-                Book Now
+                Book Tickets
               </a>
             ) : (
               <a
                 href={`/contact`}
                 className={`inline-flex items-center rounded-full bg-gradient-to-r ${style.bg} px-4 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2`}
               >
-                Register
+                Book Tickets
               </a>
             )
           ) : (

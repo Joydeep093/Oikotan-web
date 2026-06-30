@@ -73,15 +73,15 @@ export default function SponsorStrip({ sponsors }: Props) {
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.id}
-              className="snap-center shrink-0 w-[48%] sm:w-[32%] md:w-[20%] lg:w-[16%]"
+              className="snap-center shrink-0 w-[62%] sm:w-[42%] md:w-[28%] lg:w-[22%]"
             >
-              <div className="group relative flex h-28 items-center justify-center rounded-3xl border border-neutral-200 bg-neutral-50 p-4 shadow-sm overflow-hidden">
+              <div className="group relative flex h-36 items-center justify-center rounded-3xl border border-neutral-200 bg-neutral-50 p-5 shadow-sm overflow-hidden">
                 <div className="flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
                   <Image
                     src={sponsor.logo as any}
                     alt={sponsor.name}
                     title={sponsor.name}
-                    className="max-h-12 object-contain"
+                    className="max-h-16 object-contain"
                     priority
                   />
                 </div>

@@ -28,7 +28,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
   return (
     <>
       <div
-        className="mt-6 flex flex-wrap gap-2 border-b border-orange-100 pb-4"
+        className="mt-6 flex flex-wrap gap-2 border-b border-festive-100 pb-4"
         role="tablist"
         aria-label="Food menu days"
       >
@@ -40,10 +40,10 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
             role="tab"
             aria-selected={selectedDayIndex === index}
             aria-controls={`food-tab-panel-${index}`}
-            className={`rounded-lg px-4 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 ${
+            className={`rounded-lg px-4 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-festive-500 ${
               selectedDayIndex === index
-                ? "bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 text-white shadow-md shadow-orange-200"
-                : "bg-white text-neutral-700 ring-1 ring-orange-100 hover:bg-orange-50 hover:text-orange-700"
+                ? "bg-gradient-to-r from-festive-500 via-festive-400 to-brand-500 text-white shadow-md shadow-festive-200"
+                : "bg-white text-neutral-700 ring-1 ring-festive-100 hover:bg-festive-50 hover:text-festive-700"
             }`}
           >
             {formatTabDate(day.date)}
@@ -56,11 +56,11 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
           key={`${selectedDay.date}-panel`}
           id={`food-tab-panel-${selectedDayIndex}`}
           role="tabpanel"
-          className="mt-6 rounded-3xl border border-orange-100 bg-white p-5 shadow-sm sm:p-6"
+          className="mt-6 rounded-3xl border border-festive-100 bg-white p-5 shadow-sm sm:p-6"
         >
-          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-orange-50 pb-4">
+          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-festive-50 pb-4">
             <div>
-              <p className="inline-flex rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
+              <p className="inline-flex rounded-full bg-festive-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-festive-700">
                 {sectionLabel}
               </p>
               <h3 className="mt-3 text-xl font-semibold text-neutral-900 sm:text-2xl">
@@ -75,7 +75,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
             <div className="text-left sm:text-right">
               <time
                 dateTime={selectedDay.date}
-                className="block text-sm font-semibold text-orange-700"
+                className="block text-sm font-semibold text-festive-700"
               >
                 {formatProgramDate(selectedDay.date)}
               </time>
@@ -92,17 +92,17 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
               <section aria-labelledby={`meal-services-${selectedDayIndex}`}>
                 <div className="mb-4 flex items-center gap-3">
                   <div
-                    className="h-px flex-1 bg-orange-100"
+                    className="h-px flex-1 bg-festive-100"
                     aria-hidden="true"
                   />
                   <h4
                     id={`meal-services-${selectedDayIndex}`}
-                    className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-700"
+                    className="text-sm font-semibold uppercase tracking-[0.18em] text-festive-700"
                   >
                     Lunch and Dinner Menu
                   </h4>
                   <div
-                    className="h-px flex-1 bg-orange-100"
+                    className="h-px flex-1 bg-festive-100"
                     aria-hidden="true"
                   />
                 </div>
@@ -110,14 +110,14 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
                   {selectedDay.meals?.map((meal) => (
                     <section
                       key={`${selectedDay.date}-${meal.name}`}
-                      className="rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50 via-white to-amber-50 p-5 shadow-sm"
+                      className="rounded-2xl border border-festive-100 bg-gradient-to-br from-festive-50 via-white to-brand-50 p-5 shadow-sm"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-3">
-                        <p className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700 ring-1 ring-orange-200">
+                        <p className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-festive-700 ring-1 ring-festive-200">
                           {meal.name}
                         </p>
                         {meal.time && (
-                          <p className="text-sm font-semibold text-orange-700">
+                          <p className="text-sm font-semibold text-festive-700">
                             {meal.time}
                           </p>
                         )}
@@ -130,7 +130,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
                             className="flex items-start gap-3 text-sm text-neutral-700"
                           >
                             <span
-                              className="mt-1 h-2 w-2 shrink-0 rounded-full bg-orange-400"
+                              className="mt-1 h-2 w-2 shrink-0 rounded-full bg-festive-400"
                               aria-hidden="true"
                             />
                             <span>{item}</span>
@@ -139,7 +139,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
                       </ul>
 
                       {meal.note && (
-                        <p className="mt-4 rounded-xl bg-white/80 px-3 py-2 text-xs text-neutral-600 ring-1 ring-orange-100">
+                        <p className="mt-4 rounded-xl bg-white/80 px-3 py-2 text-xs text-neutral-600 ring-1 ring-festive-100">
                           {meal.note}
                         </p>
                       )}
@@ -152,27 +152,27 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
             {hasStalls && (
               <section aria-labelledby={`stall-services-${selectedDayIndex}`}>
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-rose-100" aria-hidden="true" />
+                  <div className="h-px flex-1 bg-accent-100" aria-hidden="true" />
                   <h4
                     id={`stall-services-${selectedDayIndex}`}
-                    className="text-sm font-semibold uppercase tracking-[0.18em] text-rose-700"
+                    className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-700"
                   >
                     Food Stalls
                   </h4>
-                  <div className="h-px flex-1 bg-rose-100" aria-hidden="true" />
+                  <div className="h-px flex-1 bg-accent-100" aria-hidden="true" />
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                   {selectedDay.stalls?.map((stall) => (
                     <section
                       key={`${selectedDay.date}-${stall.name}`}
-                      className="rounded-2xl border border-rose-100 bg-gradient-to-br from-rose-50 via-white to-orange-50 p-5 shadow-sm"
+                      className="rounded-2xl border border-accent-100 bg-gradient-to-br from-accent-50 via-white to-festive-50 p-5 shadow-sm"
                     >
                       <div className="flex flex-wrap items-center gap-2">
                         <h4 className="text-lg font-semibold text-neutral-900">
                           {stall.name}
                         </h4>
                         {stall.cuisine && (
-                          <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-rose-700 ring-1 ring-rose-200">
+                          <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-accent-700 ring-1 ring-accent-200">
                             {stall.cuisine}
                           </span>
                         )}
@@ -183,7 +183,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
                         </p>
                       )}
                       {stall.specialty && (
-                        <p className="mt-2 text-sm font-medium text-orange-700">
+                        <p className="mt-2 text-sm font-medium text-festive-700">
                           {stall.specialty}
                         </p>
                       )}
@@ -194,7 +194,7 @@ export default function FoodMenuTabs({ schedule }: FoodMenuTabsProps) {
                             className="flex items-start gap-3 text-sm text-neutral-700"
                           >
                             <span
-                              className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rose-400"
+                              className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent-400"
                               aria-hidden="true"
                             />
                             <span>{item}</span>

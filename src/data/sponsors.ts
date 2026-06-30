@@ -1,16 +1,14 @@
-import sponsorLogo from "@/assets/images/logo/accenture_logo.png";
+import accenture from "@/assets/images/logo/accenture_logo.png";
+import threespoons from "@/assets/images/logo/3_spoons.png";
+import cognizant from "@/assets/images/logo/cognizant.png";
+import embassy from "@/assets/images/logo/embassy_of_india.png";
 
 export const SPONSORS = [
-  { id: "s1", name: "Sponsor 1", logo: sponsorLogo, year: 2026 },
-  { id: "s2", name: "Sponsor 2", logo: sponsorLogo, year: 2026 },
-  { id: "s3", name: "Sponsor 3", logo: sponsorLogo, year: 2026 },
-  { id: "s4", name: "Sponsor 4", logo: sponsorLogo, year: 2026 },
-  { id: "s5", name: "Sponsor 5", logo: sponsorLogo, year: 2026 },
-  { id: "s6", name: "Sponsor 6", logo: sponsorLogo, year: 2026 },
-  { id: "s7", name: "Sponsor 7", logo: sponsorLogo, year: 2026 },
-  { id: "s8", name: "Sponsor 8", logo: sponsorLogo, year: 2026 },
-  { id: "s9", name: "Sponsor 9", logo: sponsorLogo, year: 2025 },
-  { id: "s10", name: "Sponsor 10", logo: sponsorLogo, year: 2024 },
+  { id: "s1", name: "Accenture Lithuania", logo: accenture, year: 2024 },
+  { id: "s2", name: "Cognizant", logo: cognizant, year: 2024 },
+  { id: "s3", name: "Embassy of India", logo: embassy, year: 2024 },
+  { id: "s4", name: "Accenture Lithuania", logo: accenture, year: 2025 },
+  { id: "s5", name: "3 Spoons", logo: threespoons, year: 2025 },
 ];
 
 export default SPONSORS;

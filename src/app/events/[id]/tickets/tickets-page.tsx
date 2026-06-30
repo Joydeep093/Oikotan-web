@@ -29,52 +29,52 @@ const CATEGORY_STYLES: Record<
   }
 > = {
   pass: {
-    bg: "from-violet-600 via-purple-600 to-indigo-600",
-    badge: "bg-violet-100 text-violet-800",
+    bg: "from-brand-600 via-brand-500 to-accent-500",
+    badge: "bg-brand-100 text-brand-800",
     icon: "🎟️",
-    accent: "text-violet-700",
-    border: "border-violet-200",
-    glow: "shadow-violet-100",
+    accent: "text-brand-700",
+    border: "border-brand-200",
+    glow: "shadow-brand-100",
   },
   puja: {
-    bg: "from-amber-500 via-orange-500 to-yellow-500",
-    badge: "bg-amber-100 text-amber-800",
+    bg: "from-festive-500 via-festive-400 to-brand-500",
+    badge: "bg-festive-100 text-festive-800",
     icon: "🪔",
-    accent: "text-amber-700",
-    border: "border-amber-200",
-    glow: "shadow-amber-100",
+    accent: "text-festive-700",
+    border: "border-festive-200",
+    glow: "shadow-festive-100",
   },
   food: {
-    bg: "from-orange-500 via-red-400 to-rose-500",
-    badge: "bg-orange-100 text-orange-800",
+    bg: "from-festive-500 via-accent-400 to-accent-500",
+    badge: "bg-festive-100 text-festive-800",
     icon: "🍛",
-    accent: "text-orange-700",
-    border: "border-orange-200",
-    glow: "shadow-orange-100",
+    accent: "text-festive-700",
+    border: "border-festive-200",
+    glow: "shadow-festive-100",
   },
   cultural: {
-    bg: "from-indigo-500 via-blue-500 to-sky-500",
-    badge: "bg-indigo-100 text-indigo-800",
+    bg: "from-brand-500 via-brand-400 to-festive-400",
+    badge: "bg-brand-100 text-brand-800",
     icon: "🎭",
-    accent: "text-indigo-700",
-    border: "border-indigo-200",
-    glow: "shadow-indigo-100",
+    accent: "text-brand-700",
+    border: "border-brand-200",
+    glow: "shadow-brand-100",
   },
   dandiya: {
-    bg: "from-fuchsia-600 via-pink-500 to-rose-500",
-    badge: "bg-fuchsia-100 text-fuchsia-800",
+    bg: "from-accent-600 via-accent-500 to-festive-500",
+    badge: "bg-accent-100 text-accent-800",
     icon: "🥁",
-    accent: "text-fuchsia-700",
-    border: "border-fuchsia-200",
-    glow: "shadow-fuchsia-100",
+    accent: "text-accent-700",
+    border: "border-accent-200",
+    glow: "shadow-accent-100",
   },
   special: {
-    bg: "from-emerald-500 via-teal-500 to-cyan-500",
-    badge: "bg-emerald-100 text-emerald-800",
+    bg: "from-accent-500 via-brand-500 to-brand-400",
+    badge: "bg-accent-100 text-accent-800",
     icon: "⭐",
-    accent: "text-emerald-700",
-    border: "border-emerald-200",
-    glow: "shadow-emerald-100",
+    accent: "text-accent-700",
+    border: "border-accent-200",
+    glow: "shadow-accent-100",
   },
 };
 
@@ -114,12 +114,12 @@ export default async function TicketsPage({ params }: TicketsPageProps) {
   const featuredTickets = tickets.filter((t) => t.featured);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_#f5f3ff_0%,_#fff_40%,_#fdf4ff_100%)]">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_#f0fafa_0%,_#fff_40%,_#fff1f4_100%)]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Back link */}
         <Link
           href={`/events`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-violet-700 hover:text-violet-900 transition-colors"
+          className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900 transition-colors"
         >
           <svg
             className="h-4 w-4"
@@ -139,7 +139,7 @@ export default async function TicketsPage({ params }: TicketsPageProps) {
         </Link>
 
         {/* Hero banner */}
-        <header className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600 p-6 sm:p-10 text-white shadow-2xl">
+        <header className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-r from-brand-600 via-accent-600 to-festive-500 p-6 sm:p-10 text-white shadow-2xl">
           <div
             className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10"
             aria-hidden="true"
@@ -149,17 +149,17 @@ export default async function TicketsPage({ params }: TicketsPageProps) {
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute right-32 bottom-0 h-32 w-32 rounded-full bg-pink-400/20"
+            className="pointer-events-none absolute right-32 bottom-0 h-32 w-32 rounded-full bg-festive-300/20"
             aria-hidden="true"
           />
 
-          <p className="text-xs font-semibold uppercase tracking-widest text-fuchsia-200">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-100">
             Book Your Spot
           </p>
           <h1 className="mt-2 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             {event.title} Tickets
           </h1>
-          <p className="mt-3 max-w-2xl text-sm sm:text-base text-fuchsia-100 leading-relaxed">
+          <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/90 leading-relaxed">
             Choose your experience — darshan passes, bhog meals, cultural
             evening, Dandiya Night, and more. Secure your spot before tickets
             run out.
@@ -183,7 +183,7 @@ export default async function TicketsPage({ params }: TicketsPageProps) {
                 className="rounded-xl bg-white/15 px-4 py-2.5 backdrop-blur-sm text-center min-w-[100px]"
               >
                 <p className="text-lg font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-fuchsia-100">{stat.label}</p>
+                <p className="text-xs text-brand-100">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -252,10 +252,10 @@ export default async function TicketsPage({ params }: TicketsPageProps) {
         })}
 
         {/* Back button bottom */}
-        <div className="mt-12 border-t border-violet-100 pt-6">
+        <div className="mt-12 border-t border-brand-100 pt-6">
           <Link
             href={`/events/${event.id}`}
-            className="inline-flex items-center gap-2 rounded-full border border-violet-300 bg-white px-5 py-2.5 text-sm font-semibold text-violet-700 hover:bg-violet-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-300 bg-white px-5 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
           >
             <svg
               className="h-4 w-4"

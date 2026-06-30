@@ -119,7 +119,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>Vilnius, Lithuania</li>
-              <li className="text-neutral-500 text-xs mt-4">Company Code: 307463573</li>
+              <li className="text-neutral-500 text-xs mt-4">
+                Company Code: <span className="font-bold text-neutral-300">307463573</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -128,7 +130,7 @@ export default function Footer() {
           <p>
             © {year} {SITE_NAME}. All rights reserved.
           </p>
-          <p>Made with ❤️ for the Indian community in Lithuania</p>
+          <p>Made with ❤️ for Oikotan</p>
         </div>
       </div>
     </footer>

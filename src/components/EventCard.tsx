@@ -3,10 +3,10 @@ import Link from "next/link";
 import type { Event } from "@/types";
 
 const CATEGORY_COLORS: Record<Event["category"], string> = {
-  traditional: "bg-emerald-100 text-emerald-800",
-  festival:    "bg-rose-100 text-rose-800",
-  cultural:    "bg-indigo-100 text-indigo-800",
-  social:      "bg-cyan-100 text-cyan-800",
+  traditional: "bg-brand-100 text-brand-800",
+  festival: "bg-accent-100 text-accent-800",
+  cultural: "bg-festive-100 text-festive-800",
+  social: "bg-brand-50 text-brand-700",
 };
 
 function formatDate(event: Event) {
