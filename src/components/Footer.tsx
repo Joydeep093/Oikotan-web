@@ -29,40 +29,41 @@ export default function Footer() {
             </Link>
             <p className="mt-4 text-sm text-neutral-400 max-w-xs leading-relaxed">
               A non-profit Indian cultural community
-              celebrating heritage, folk traditions, and the spirit of India
+              celebrating heritage, traditions, and the spirit of India
               in Lithuania.
             </p>
             <div className="mt-5 flex gap-4" aria-label="Social media links">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/p/Oikotan-The-Indian-Bengali-Association-Lithuania-61566110140543/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-neutral-400 hover:text-brand-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded"
+                className="text-[#1877F2] hover:text-[#1352b8] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1877F2] rounded"
               >
                 <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
+                  className="h-4 w-4"
                   viewBox="0 0 24 24"
+                  fill="currentColor"
                   aria-hidden="true"
                 >
-                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                  <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.892-4.788 4.656-4.788 1.325 0 2.464.099 2.795.143v3.24h-1.917c-1.504 0-1.794.716-1.794 1.763V12h3.587l-.467 3.626h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.407 0 22.675 0z" />
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/bengalisinlithuania?igsh=MWtx2ZIMHY3dmZmaw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-neutral-400 hover:text-brand-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded"
+                className="text-[#E1306C] hover:text-[#bd0f57] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E1306C] rounded"
               >
                 <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
+                  className="h-4 w-4"
                   viewBox="0 0 24 24"
+                  fill="currentColor"
                   aria-hidden="true"
                 >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.74 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.74 24 12 24s3.668-.014 4.948-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.28.072-1.688.072-4.948s-.014-3.668-.072-4.948c-.2-4.358-2.618-6.78-6.98-6.98C15.668.014 15.26 0 12 0z" />
+                  <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
                 </svg>
               </a>
               <a

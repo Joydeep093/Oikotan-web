@@ -8,6 +8,9 @@ import { formatEventDate, formatProgramDate } from "@/utils/dateFormatters";
 import { generateEventMetadata } from "@/utils/metadata";
 import { FOOD_MENUS_BY_EVENT_ID } from "@/data/food-menu";
 import { TICKETS_BY_EVENT_ID } from "@/data/tickets";
+import sponsorLogo from "@/assets/images/logo/logo.png";
+import { SPONSORS } from "@/data/sponsors";
+import SponsorStrip from "@/components/SponsorStrip";
 
 interface EventPageProps {
   params: {
@@ -40,7 +43,9 @@ const PERIOD_STYLES = {
   },
 } as const;
 
-export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: EventPageProps): Promise<Metadata> {
   const p = (await params) as { id: string };
   const event = EVENTS.find((e) => e.id === p.id);
   return generateEventMetadata(event);
@@ -68,6 +73,7 @@ export default async function EventPage({ params }: EventPageProps) {
     (item) => item.url === "cultural",
   );
   const hasDandiyaPage = allProgramItems.some((item) => item.url === "dandiya");
+  const eventYear = new Date(event.startDate).getFullYear();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-brand-50 via-white to-neutral-50">
@@ -355,6 +361,30 @@ export default async function EventPage({ params }: EventPageProps) {
             </div>
           </section>
         )}
+
+        {(() => {
+          const filtered = SPONSORS.filter((s) => s.year === eventYear);
+          if (filtered.length === 0) return null;
+          const list = filtered;
+
+          return (
+            <section className="mt-10 rounded-[2rem] border border-neutral-200 bg-gradient-to-r from-brand-50 via-white to-brand-50 p-1 shadow-sm">
+              <div className="overflow-hidden rounded-[1.75rem] bg-white px-6 py-8 sm:px-8">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <h2 className="font-display text-2xl font-bold text-neutral-900">Our Sponsors</h2>
+                    <p className="mt-2 text-sm text-neutral-600">Oikotan Durga Puja</p>
+                  </div>
+                  <span className="inline-flex rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+                    {eventYear}
+                  </span>
+                </div>
+
+                <SponsorStrip sponsors={list} />
+              </div>
+            </section>
+          );
+        })()}
 
         {event.ticketUrl ? (
           <div className="mt-10 flex gap-4">

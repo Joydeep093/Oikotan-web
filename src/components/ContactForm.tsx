@@ -1,44 +1,86 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface FormState {
   name: string;
   email: string;
-  subject: string;
+  category: string;
   message: string;
 }
 
-const INITIAL: FormState = { name: "", email: "", subject: "", message: "" };
+const INITIAL: FormState = { name: "", email: "", category: "", message: "" };
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(INITIAL);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
 
   function validate(): boolean {
     const e: Partial<FormState> = {};
     if (!form.name.trim())    e.name    = "Name is required.";
     if (!form.email.trim())   e.email   = "Email address is required.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Please enter a valid email address.";
+    if (!form.category.trim()) e.category = "Please select a category.";
     if (!form.message.trim()) e.message = "Message is required.";
     setErrors(e);
     return Object.keys(e).length === 0;
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-    if (errors[e.target.name as keyof FormState]) {
-      setErrors((er) => ({ ...er, [e.target.name]: undefined }));
+    const fieldName = e.target.name as keyof FormState;
+    setForm((f) => ({ ...f, [fieldName]: e.target.value }));
+    if (errors[fieldName]) {
+      setErrors((er) => ({ ...er, [fieldName]: undefined }));
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "QSFvYxqBh1D_kG0ss";
+    if (!publicKey) {
+      setSendError("Email service is not configured. Please set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY.");
+      return;
+    }
+    emailjs.init(publicKey);
+  }, []);
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setSendError(null);
     if (!validate()) return;
-    // In production: send to API
-    setSubmitted(true);
-    setForm(INITIAL);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_eb9tnnw";
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_abkyjko";
+
+    if (!serviceId || !templateId) {
+      setSendError("Email service is not configured. Please set EmailJS service and template IDs.");
+      return;
+    }
+
+    setSending(true);
+
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      category: form.category,
+      message: form.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams);
+      setSubmitted(true);
+      setForm(INITIAL);
+    } catch (err: any) {
+      console.log("EmailJS send error:", err);
+      setSendError(
+        err?.text || err?.message || "Failed to send message. Please try again later."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -114,15 +156,20 @@ export default function ContactForm() {
 
       {/* Subject */}
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1.5">
-          Subject
+        <label htmlFor="category" className="block text-sm font-medium text-neutral-700 mb-1.5">
+          Category <span className="text-accent-500" aria-hidden="true">*</span>
+          <span className="sr-only">(required)</span>
         </label>
         <select
-          id="subject"
-          name="subject"
-          value={form.subject}
+          id="category"
+          name="category"
+          value={form.category}
           onChange={handleChange}
+          aria-required="true"
+          aria-invalid={!!errors.category}
+          aria-describedby={errors.category ? "category-error" : undefined}
           className="block w-full rounded-xl border border-neutral-300 px-4 py-3 text-sm text-neutral-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200 transition bg-white"
+          required
         >
           <option value="">Select a topic…</option>
           <option value="membership">Membership</option>
@@ -131,6 +178,11 @@ export default function ContactForm() {
           <option value="volunteering">Volunteering</option>
           <option value="other">Other</option>
         </select>
+        {errors.category && (
+          <p id="category-error" role="alert" className="mt-1.5 text-xs text-accent-500">
+            {errors.category}
+          </p>
+        )}
       </div>
 
       {/* Message */}
@@ -159,9 +211,17 @@ export default function ContactForm() {
       <button
         type="submit"
         className="w-full rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white hover:bg-brand-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+        disabled={sending}
+        aria-busy={sending}
       >
-        Send Message
+        {sending ? "Sending…" : "Send Message"}
       </button>
+
+      {sendError && (
+        <p role="alert" className="mt-2 text-sm text-accent-500 text-center">
+          {sendError}
+        </p>
+      )}
 
       <p className="text-xs text-neutral-400 text-center">
         Fields marked <span aria-hidden="true">*</span><span className="sr-only">with an asterisk</span> are required.

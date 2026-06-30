@@ -8,7 +8,9 @@ export const SITE_TAGLINE =
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
+  { label: "Sponsors", href: "/sponsors" },
   { label: "About", href: "/about" },
+  { label: "Donate", href: "/donate" },
   { label: "Contact", href: "/contact" },
 ];
 

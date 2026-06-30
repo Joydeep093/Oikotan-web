@@ -111,6 +111,14 @@ export interface Partner {
   website?: string;
 }
 
+export interface Sponsor {
+  id: string;
+  name: string;
+  logo?: string | StaticImageData;
+  website?: string;
+  year?: number;
+}
+
 export interface TeamMember {
   id: string;
   name: string;
