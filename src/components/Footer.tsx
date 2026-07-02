@@ -23,7 +23,7 @@ export default function Footer() {
                 className="h-16 w-auto"
                 aria-hidden="true"
               />
-              <span className="font-display text-xl font-bold text-white">
+              <span className="font-wordmark text-2xl font-normal text-white tracking-[0.04em] leading-none">
                 {SITE_NAME}
               </span>
             </Link>
@@ -32,6 +32,14 @@ export default function Footer() {
               celebrating heritage, traditions, and the spirit of India
               in Lithuania.
             </p>
+            <div className="mt-5 inline-flex items-center gap-3 rounded-xl border border-brand-300/30 bg-neutral-800/70 px-4 py-2.5">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-300">
+                Company Code
+              </span>
+              <span className="rounded-md bg-brand-500 px-2.5 py-1 font-mono text-sm font-bold tracking-[0.12em] text-white">
+                307463573
+              </span>
+            </div>
             <div className="mt-5 flex gap-4" aria-label="Social media links">
               <a
                 href="https://www.facebook.com/p/Oikotan-The-Indian-Bengali-Association-Lithuania-61566110140543/"
@@ -110,7 +118,15 @@ export default function Footer() {
               Contact
             </h2>
             <ul className="space-y-2 text-sm text-neutral-300">
-              <li>
+              <li className="flex items-center gap-2">
+                <svg
+                  className="h-4 w-4 text-brand-400"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4.5A2.5 2.5 0 016.5 2h11A2.5 2.5 0 0120 4.5v15A2.5 2.5 0 0117.5 22h-11A2.5 2.5 0 014 19.5v-15zM6.5 4a.5.5 0 00-.5.5V7l7 4.667L19 7V4.5a.5.5 0 00-.5-.5h-12zM19 8.56l-6.778 4.519a1 1 0 01-1.07 0L5 8.56V19.5a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V8.56z" />
+                </svg>
                 <a
                   href="mailto:bengalisinvilnius@gmail.com"
                   className="hover:text-brand-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded"
@@ -118,9 +134,33 @@ export default function Footer() {
                   bengalisinvilnius@gmail.com
                 </a>
               </li>
-              <li>Vilnius, Lithuania</li>
-              <li className="text-neutral-500 text-xs mt-4">
-                Company Code: <span className="font-bold text-neutral-300">307463573</span>
+              <li className="flex items-center gap-2">
+                <svg
+                  className="h-4 w-4 text-brand-400"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.32.56 3.58.56a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.26.19 2.46.56 3.58a1 1 0 01-.24 1.01l-2.2 2.2z" />
+                </svg>
+                <a
+                  href="tel:+37062547874"
+                  className="hover:text-brand-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded"
+                >
+                  +370 625 47874
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg
+                  className="h-4 w-4 text-brand-400"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2C8.134 2 5 5.134 5 9c0 3.86 5.7 10.78 6.11 11.3a1 1 0 001.78 0C13.3 19.78 19 12.86 19 9c0-3.866-3.134-7-7-7zm0 16.18C11.7 17.7 7 11.56 7 9a5 5 0 1110 0c0 2.56-4.7 8.7-5 9.18z" />
+                  <path d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                </svg>
+                <span>Vilnius, Lithuania</span>
               </li>
             </ul>
           </div>

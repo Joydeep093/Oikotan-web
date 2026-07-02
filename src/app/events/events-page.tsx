@@ -32,21 +32,27 @@ export default function EventsPage() {
       </header>
 
       {/* Upcoming */}
-      {upcoming.length > 0 && (
-        <section aria-labelledby="upcoming-events-heading">
-          <h2
-            id="upcoming-events-heading"
-            className="text-2xl font-display font-bold text-neutral-900 mb-6"
-          >
-            Upcoming Events
-          </h2>
+      <section aria-labelledby="upcoming-events-heading">
+        <h2
+          id="upcoming-events-heading"
+          className="text-2xl font-display font-bold text-neutral-900 mb-6"
+        >
+          Upcoming Events
+        </h2>
+        {upcoming.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {upcoming.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
-        </section>
-      )}
+        ) : (
+          <div className="rounded-2xl border border-dashed border-brand-300 bg-brand-50 px-6 py-8 text-center">
+            <p className="text-lg font-semibold text-brand-700">
+              Big celebrations are brewing. Stay tuned for our next event!
+            </p>
+          </div>
+        )}
+      </section>
 
       {/* Past */}
       {past.length > 0 && (

@@ -133,9 +133,17 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {upcomingEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
+            {upcomingEvents.length > 0 ? (
+              upcomingEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))
+            ) : (
+              <div className="sm:col-span-2 lg:col-span-3 rounded-2xl border border-dashed border-brand-300 bg-brand-50 px-6 py-8 text-center">
+                <p className="text-lg font-semibold text-brand-700">
+                  Big celebrations are brewing. Stay tuned for our next event!
+                </p>
+              </div>
+            )}
           </div>
           <div className="mt-8 text-center sm:hidden">
             <Link
