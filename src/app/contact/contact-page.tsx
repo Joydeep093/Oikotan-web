@@ -20,8 +20,8 @@ const INFO = [
       </svg>
     ),
     label: "Email",
-    value: "bengalisinvilnius@gmail.com",
-    href: "mailto:bengalisinvilnius@gmail.com",
+    value: "contact@oikotan.lt",
+    href: "mailto:contact@oikotan.lt",
   },
   {
     icon: (

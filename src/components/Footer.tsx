@@ -128,10 +128,10 @@ export default function Footer() {
                   <path d="M4 4.5A2.5 2.5 0 016.5 2h11A2.5 2.5 0 0120 4.5v15A2.5 2.5 0 0117.5 22h-11A2.5 2.5 0 014 19.5v-15zM6.5 4a.5.5 0 00-.5.5V7l7 4.667L19 7V4.5a.5.5 0 00-.5-.5h-12zM19 8.56l-6.778 4.519a1 1 0 01-1.07 0L5 8.56V19.5a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V8.56z" />
                 </svg>
                 <a
-                  href="mailto:bengalisinvilnius@gmail.com"
+                  href="mailto:contact@oikotan.lt"
                   className="hover:text-brand-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded"
                 >
-                  bengalisinvilnius@gmail.com
+                  contact@oikotan.lt
                 </a>
               </li>
               <li className="flex items-center gap-2">
