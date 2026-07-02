@@ -179,7 +179,7 @@ export default function ContactPage() {
                   href="mailto:bengalisinvilnius@gmail.com"
                   className="text-brand-600 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded"
                 >
-                  bengalisinvilnius@gmail.com
+                  contact@oikotan.lt
                 </a>
               </p>
             </div>
